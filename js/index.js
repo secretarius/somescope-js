@@ -130,3 +130,62 @@ return res
 console.log(padIt("a", 3));
 console.log(padIt("a", 4));
 console.log(padIt("a", 5));
+
+function baz() {
+    // стек вызовов: `baz`
+    // поэтому наша точка вызова — глобальная область видимости
+
+    console.log( "baz" );
+    bar(); // <-- точка вызова для `bar`
+}
+
+function bar() {
+    // стек вызовов: `baz` -> `bar`
+    // поэтому наша точка вызова в `baz`
+
+    console.log( "bar" );
+    foo(); // <-- точка вызова для `foo`
+}
+
+function foo() {
+    // стек вызовов: `baz` -> `bar` -> `foo`
+    // поэтому наша точка вызова в `bar`
+
+    console.log( "foo" );
+}
+
+baz(); // <-- точка вызова для `baz`
+
+function foo() {
+	console.log( this.a );
+}
+
+var a = 2;
+
+(function(){
+	"use strict";
+
+	console.log(foo()); // 2
+})();
+
+const myName = 'Alex';
+const myAge = 36;
+
+console.log(`Hello my name is ${myName}. I am ${myAge} years old`);
+
+
+
+const Animal = function () {
+    this.name = 'Alex';
+};
+
+Animal.prototype.attachEvent = function () {
+    const body = document.querySelector('body');
+    
+    body.addEventListener('click', () => { //стрілочна функція не має свого this а бере його у вищестоячої функції тобто з Animal function
+        alert(this.name);
+});
+};
+
+const anima = new Animal();
+anima.attachEvent();
