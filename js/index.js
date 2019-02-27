@@ -86,11 +86,11 @@ productNames.forEach(function (element, idx) {
     }
     });
     
+    
 const arr = [23, 27, 31, 42, 55, 36, 67];
-
-function sumOddIdx (arr) {
+function sumOddIdx(arr) {
     let sum = 0;
-    for (i = 0; i < arr.lengs; i++) {
+    for (let i = 0; i < arr.length; i++) {
         if (i % 2) {
             sum += arr[i];
         }
@@ -98,3 +98,35 @@ function sumOddIdx (arr) {
     return sum;
 }
 console.log(sumOddIdx(arr));
+
+//modern
+function modernSumOddIdx(arr){
+    return arr.filter((el, idx) => idx % 2)
+          .reduce ((acc, el) => acc + el, 0);
+    
+}
+
+console.log(modernSumOddIdx(arr));
+
+//modern-modern
+const modernSumOddIdx2 = arr => arr.filter ( (el, idx) => idx % 2)
+                                   .reduce ( (acc, el) => acc + el, 0);
+console.log(modernSumOddIdx2(arr));
+
+
+
+function padIt(str,n){
+  let res = str;
+  let i = 0;
+    while ( i < n) {
+	     if (i % 2 === 0){
+        res = "*" + res;
+  } else {res = res + "*"}
+  i++;
+}
+return res
+}
+
+console.log(padIt("a", 3));
+console.log(padIt("a", 4));
+console.log(padIt("a", 5));
