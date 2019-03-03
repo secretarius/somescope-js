@@ -40,3 +40,21 @@ console.log(newObj);
 // console.log(user.getSay());
 // console.log(user.getAge());
 
+const nickName = 'Redman';
+const cityName = 'Lviv';
+
+const newUser = {
+    nickName,
+    cityName,
+    
+    get info() {
+        return `My name is ${nickName}, I am from ${cityName}`;
+    },
+    
+    set info(stri) {
+        alert(stri);
+    }
+};
+
+console.log(newUser.info);
+console.log(newUser.info = 'Hellooooooo!');
