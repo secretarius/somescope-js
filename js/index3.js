@@ -50,9 +50,24 @@ class Animal {
 
 // Наслідування
 
-function Bird () {
-    Animal.aplay(this, arguments); // наслідування з рядка 2 цього файлу по старому синтаксису
+// function Bird () {
+//     Animal.aplay(this, arguments); // наслідування з рядка 2 цього файлу по старому синтаксису
+// }
+
+// Bird.prototype = Object.create(Animal.prototype); // наслідування з рядка 6, 7, 8 цього файлу по старому синтаксису
+// Bird.prototype.constructor = Bird;
+
+class Bird extends Animal {
+    static version = '0.0.1';
+    constructor (a) { // наслідування з 2 рядка
+        super(a); // насідування замість 53, 54, 55 рядка
+        console.log(Bird.version);
+    }
+    getName() {
+        console.log('LOG from Bird');
+        console.log(super.getName());//наслідування методу з 27, 28, 29 рядка 
+    }
 }
 
-Bird.prototype = Object.create(Animal.prototype); // наслідування з рядка 6, 7, 8 цього файлу по старому синтаксису
-Bird.prototype.constructor = Bird;
+const bird = new Bird('kar');
+bird.getName();
