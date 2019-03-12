@@ -37,3 +37,10 @@
 promise
     .then((text) => console.log(text))
     .catch(() => console.log('BAD !!!'));
+    
+// 
+let list = [1, 2, 3, 4, 5];
+for ( let index = 0; index < list.length; index++){
+	let item = list[index];
+	console.log(`${index}: ${item}`);
+}
